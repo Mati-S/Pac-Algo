@@ -5,10 +5,12 @@
 
 class Partida{
 public:
+    // @march: Esto no recibe el mapa como parámetro.
     Partida(Nat alto, Nat ancho, Coordenada s, Coordenada ll, set<Coordenada> f, set<Coordenada> p,set<Coordenada> ch);
     void resetearPartida();
     void moverse(Direccion dir);
     Coordenada actual() const;
+    // @march: Podría ser const a derecha.
     bool gano();
     bool perdio();
     Nat puntaje() const;
@@ -17,6 +19,7 @@ public:
     Nat alto() const;
     Coordenada salida() const;
     Coordenada llegada() const;
+    // @march: ¿Porque no devuelven el mapa por referencia constante?
     set<Coordenada> conjChocos() const;
     set<Coordenada> conjFantasmas() const;
     set<Coordenada> conjParedes() const;

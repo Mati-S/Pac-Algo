@@ -9,6 +9,9 @@ public:
     void resetearChocos();
     Coordenada salida() const;
     Coordenada llegada() const;
+    // @march: Estos los haría const a derecha. Con chocolates no se puede
+    // ya que lo usan para modificar el mapa. Sería más prolijo que haya otra
+    // función para eliminar un chocolate.
     vector< vector<bool> >& fantasmas();
     vector< vector<bool> >& paredes();
     vector< vector<bool> >& chocolates();
@@ -24,6 +27,8 @@ private:
     Coordenada salida_;
     Coordenada llegada_;
     vector< vector<bool> > chocolates_;
+    // @march: Este fantasmas_ ya no son solo los fantasmas. También afecta
+    // el rep. Charlar.
     vector< vector<bool> >fantasmas_;
     vector< vector<bool> > paredes_;
     set<Coordenada> chocosOri_;

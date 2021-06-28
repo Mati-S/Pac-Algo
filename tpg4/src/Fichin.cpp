@@ -15,7 +15,7 @@ ResultadoMovimiento Fichin:: mover(Direccion dir) {
     ResultadoMovimiento res= SIGUE;
     if(partida_.gano()){
         Nat puntosAct= partida_.puntaje();
-        if (jugadores_.count(jugador_)){
+        if (jugadores_.count(jugador_)){ // @march: Esto no es O(|J|), tienen que usar su trie.
             Nat puntosAnt= jugadores_[jugador_];
             if (puntosAct< puntosAnt){
                 jugadores_[jugador_]= puntosAct;

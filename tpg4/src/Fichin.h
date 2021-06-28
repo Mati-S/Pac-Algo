@@ -7,6 +7,7 @@
 
 class Fichin{
 public:
+    // @march: ¿porqué no reciben el mapa?
     Fichin(Nat largo, Nat alto, Coordenada inicio, Coordenada llegada, set<Coordenada> fantasmas, set<Coordenada> paredes, set<Coordenada> chocolates);
     void nuevaPartida(Jugador j);
     ResultadoMovimiento mover(Direccion dir);
@@ -17,6 +18,7 @@ public:
     Coordenada jugador() const;
     Nat cantidadMovimientos() const;
     Nat inmunidad() const;
+    // @march: ¿porqué no devuelven el mapa?
     Nat ancho() const;
     Nat alto() const;
     Coordenada inicio() const;

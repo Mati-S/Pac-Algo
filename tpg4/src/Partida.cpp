@@ -54,6 +54,7 @@ bool Partida:: gano(){
 }
 
 bool Partida:: perdio(){
+  // @march: falta revisar que no ganó.
  return (mapa_.fantasmas()[actual_.first][actual_.second] && inmunidad_== 0);
 }
 
