@@ -12,9 +12,10 @@ public:
     // @march: Estos los haría const a derecha. Con chocolates no se puede
     // ya que lo usan para modificar el mapa. Sería más prolijo que haya otra
     // función para eliminar un chocolate.
-    vector< vector<bool> >& fantasmas();
-    vector< vector<bool> >& paredes();
-    vector< vector<bool> >& chocolates();
+    void eliminarChocolate(Coordenada);
+    const vector< vector<bool> >& fantasmas();
+    const vector< vector<bool> >& paredes();
+    const vector< vector<bool> >& chocolates();
     Nat alto() const;
     Nat ancho() const;
     set<Coordenada> conjChocos() const;

@@ -8,7 +8,7 @@
 class Fichin{
 public:
     // @march: ¿porqué no reciben el mapa?
-    Fichin(Nat largo, Nat alto, Coordenada inicio, Coordenada llegada, set<Coordenada> fantasmas, set<Coordenada> paredes, set<Coordenada> chocolates);
+    Fichin(const Mapa& mapa);
     void nuevaPartida(Jugador j);
     ResultadoMovimiento mover(Direccion dir);
     map<Jugador, Nat> verRanking() const;
@@ -18,6 +18,8 @@ public:
     Coordenada jugador() const;
     Nat cantidadMovimientos() const;
     Nat inmunidad() const;
+    // @march: usar esto
+    const Mapa& mapa() const;
     // @march: ¿porqué no devuelven el mapa?
     Nat ancho() const;
     Nat alto() const;
@@ -34,6 +36,7 @@ private:
     bool jugando_;
     Jugador jugador_;
     map<Jugador, Nat> jugadores_;
+    // @march: cambiar por string_map<Nat>
 };
 
 #endif //TP4_2021_C1_FICHIN_H

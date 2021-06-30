@@ -11,15 +11,19 @@ public:
     void moverse(Direccion dir);
     Coordenada actual() const;
     // @march: Podría ser const a derecha.
-    bool gano();
-    bool perdio();
+    bool gano() const;
+    bool perdio() const;
     Nat puntaje() const;
     Nat inmunidad() const;
+    
+    // @march: usar esto
+    const Mapa& mapa() const;
+
+    // @march: ¿Porque no devuelven el mapa por referencia constante?
     Nat ancho() const;
     Nat alto() const;
     Coordenada salida() const;
     Coordenada llegada() const;
-    // @march: ¿Porque no devuelven el mapa por referencia constante?
     set<Coordenada> conjChocos() const;
     set<Coordenada> conjFantasmas() const;
     set<Coordenada> conjParedes() const;

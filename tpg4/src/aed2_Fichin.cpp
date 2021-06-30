@@ -1,9 +1,10 @@
 #include "aed2_Fichin.h"
+#include "Mapa.h"
 
 // Completar
 
 aed2_Fichin:: aed2_Fichin(Nat largo, Nat alto, Coordenada inicio, Coordenada llegada, set<Coordenada> paredes, set<Coordenada> fantasmas, set<Coordenada> chocolates):
-        fichin_(largo, alto, inicio,llegada, fantasmas, paredes, chocolates){
+        fichin_(Mapa(largo, alto, inicio,llegada, fantasmas, paredes, chocolates)){
 }
 
 void aed2_Fichin:: nuevaPartida(Jugador j) {
@@ -48,7 +49,7 @@ Nat aed2_Fichin:: inmunidad() const{
 }
 
 Nat aed2_Fichin:: largo() const{
-    return fichin_.alto();
+    return fichin_.mapa().alto();
 }
 
 Nat aed2_Fichin:: alto() const{

@@ -50,7 +50,7 @@ Coordenada Partida:: actual() const {
 }
 
 bool Partida:: gano(){
-    return (actual_== mapa_.llegada());
+    return (actual_ == mapa_.llegada());
 }
 
 bool Partida:: perdio(){
