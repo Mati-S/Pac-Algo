@@ -48,35 +48,36 @@ Nat aed2_Fichin:: inmunidad() const{
 }
 
 Nat aed2_Fichin:: largo() const{
-    return fichin_.alto();
+    return fichin_.mapa().alto();
 }
 
 Nat aed2_Fichin:: alto() const{
-    return fichin_.ancho();
+    return fichin_.mapa().ancho();
 }
 
 Coordenada aed2_Fichin::  inicio() const{
-    Coordenada c= fichin_.inicio();
+    Coordenada c= fichin_.mapa().salida();
     return make_pair(c.first+1,c.second+1);
 }
 
 Coordenada aed2_Fichin:: llegada() const{
-    Coordenada c= fichin_.llegada();
+    Coordenada c= fichin_.mapa().llegada();
     return make_pair(c.first+1,c.second+1);
 }
 
 set<Coordenada> aed2_Fichin:: paredes() const{
-    return fichin_.paredes();
+    return fichin_.mapa().conjParedes();
 }
 
 set<Coordenada> aed2_Fichin:: fantasmas() const{
-    return fichin_.fantasmas();
+    return fichin_.mapa().conjFantasmas();
 }
 
 set<Coordenada> aed2_Fichin:: chocolatesIniciales() const{
-    return fichin_.chocolatesIniciales();
+    return fichin_.mapa().conjChocos();
 }
 
 set<Coordenada> aed2_Fichin:: chocolatesActuales() const {
-    return fichin_.chocolatesActuales();
+    return fichin_.mapa().chocosActuales();
 }
+
