@@ -1,6 +1,7 @@
 #include "Tipos.h"
 #include "Mapa.h"
 #include "Partida.h"
+#include "string_map.h"
 
 #ifndef TP4_2021_C1_FICHIN_H
 #define TP4_2021_C1_FICHIN_H
@@ -17,21 +18,15 @@ public:
     Coordenada jugador() const;
     Nat cantidadMovimientos() const;
     Nat inmunidad() const;
-    Nat ancho() const;
-    Nat alto() const;
-    Coordenada inicio() const;
-    Coordenada llegada() const;
-    set<Coordenada> paredes() const;
-    set<Coordenada> fantasmas() const;
-    set<Coordenada> chocolatesIniciales() const;
-    set<Coordenada> chocolatesActuales() const;
+    const Mapa& mapa() const;
 
 private:
     //Mapa mapa_;
     Partida partida_;
     bool jugando_;
     Jugador jugador_;
-    map<Jugador, Nat> jugadores_;
+    string_map<list<pair<Jugador, Nat> >::iterator > jugadores_;
+    list<pair<Jugador, Nat> > listaJugadores_;
 };
 
 #endif //TP4_2021_C1_FICHIN_H
