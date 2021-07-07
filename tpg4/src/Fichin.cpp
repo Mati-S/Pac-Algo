@@ -16,12 +16,13 @@ ResultadoMovimiento Fichin:: mover(Direccion dir) {
     if(partida_.gano()){
         Nat puntosAct= partida_.puntaje();
         if (jugadores_.count(jugador_)){
-            Nat puntosAnt= jugadores_[jugador_];
+            Nat puntosAnt= jugadores_[jugador_]->second;
             if (puntosAct< puntosAnt){
-                jugadores_[jugador_]= puntosAct;
+                (jugadores_[jugador_])->second = puntosAct;
             }
         }else{
-            jugadores_[jugador_]= puntosAct;
+            listaJugadores_.push_front(make_pair(jugador_,puntosAct));
+            jugadores_.insert(make_pair(jugador_,listaJugadores_.begin()));
         }
         res= GANO;
     }else{
@@ -33,14 +34,18 @@ ResultadoMovimiento Fichin:: mover(Direccion dir) {
 }
 
 map<Jugador,Nat> Fichin:: verRanking() const {
-    return jugadores_;
+    map<Jugador, Nat> jugadores;
+    for(pair<Jugador, Nat> i: listaJugadores_){
+        jugadores[i.first] = i.second;
+    }
+    return jugadores;
 }
 
 pair<Jugador, Nat> Fichin:: objetivo() const{
-    Nat puntos= jugadores_.at(jugador_);
+    Nat puntos= jugadores_.at(jugador_)->second;
     Nat obj2= 0; //puntos;
     Jugador obj1= jugador_;
-    for (pair<Jugador, Nat> i: jugadores_) {
+    for (pair<Jugador, Nat> i: listaJugadores_) {
         Nat sig= i.second;
         if(obj2<= sig && sig< puntos){
             obj2= sig;
@@ -72,34 +77,6 @@ Nat Fichin:: inmunidad() const {
     return partida_.inmunidad();
 }
 
-Nat Fichin:: ancho() const{
-    return partida_.ancho();
-};
-
-Nat Fichin:: alto() const {
-    return partida_.alto();
-}
-
-Coordenada Fichin:: inicio() const {
-    return partida_.salida();
-}
-
-Coordenada Fichin:: llegada() const {
-    return partida_.llegada();
-}
-
-set<Coordenada> Fichin:: paredes() const {
-    return partida_.conjParedes();
-}
-
-set<Coordenada> Fichin:: fantasmas() const {
-    return partida_.conjFantasmas();
-}
-
-set<Coordenada> Fichin:: chocolatesIniciales() const {
-    return partida_.conjChocos();
-}
-
-set<Coordenada> Fichin:: chocolatesActuales() const {
-    return partida_.chocosActuales();
+const Mapa& Fichin:: mapa() const {
+    return partida_.mapa();
 }
