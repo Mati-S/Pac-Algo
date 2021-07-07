@@ -13,14 +13,7 @@ public:
     bool perdio();
     Nat puntaje() const;
     Nat inmunidad() const;
-    Nat ancho() const;
-    Nat alto() const;
-    Coordenada salida() const;
-    Coordenada llegada() const;
-    set<Coordenada> conjChocos() const;
-    set<Coordenada> conjFantasmas() const;
-    set<Coordenada> conjParedes() const;
-    set<Coordenada> chocosActuales() const;
+    const Mapa& mapa() const;
 
 private:
     Mapa mapa_;
