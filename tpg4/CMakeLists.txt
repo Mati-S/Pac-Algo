@@ -35,7 +35,7 @@ if (WITH_GUI)
 	target_link_libraries(pacalgo2GUI ${SDL2_LIBRARIES})
 endif (WITH_GUI)
 
-add_executable(correrTests ${SOURCE_FILES} tests/fichin-tests.cpp src/Fichin.cpp src/Fichin.h src/Partida.cpp src/Partida.h src/Mapa.cpp src/Mapa.h)
+add_executable(correrTests ${SOURCE_FILES} tests/fichin-tests.cpp src/Fichin.cpp src/Fichin.h src/Partida.cpp src/Partida.h src/Mapa.cpp src/Mapa.h src/string_map.h src/string_map.hpp)
 
 # Necesitamos asociar los archivos del framework de testing
 target_link_libraries(correrTests gtest gtest_main)
