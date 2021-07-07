@@ -9,7 +9,7 @@ public:
     void resetearChocos();
     Coordenada salida() const;
     Coordenada llegada() const;
-    vector< vector<bool> >& fantasmas();
+    vector< vector<bool> >& radioFantasma();
     vector< vector<bool> >& paredes();
     vector< vector<bool> >& chocolates();
     Nat alto() const;
@@ -24,7 +24,7 @@ private:
     Coordenada salida_;
     Coordenada llegada_;
     vector< vector<bool> > chocolates_;
-    vector< vector<bool> >fantasmas_;
+    vector< vector<bool> >radioFantasma_;
     vector< vector<bool> > paredes_;
     set<Coordenada> chocosOri_;
     set<Coordenada> fantasmasOri_;
