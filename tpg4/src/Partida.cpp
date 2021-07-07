@@ -54,7 +54,7 @@ bool Partida:: gano(){
 }
 
 bool Partida:: perdio(){
- return (mapa_.fantasmas()[actual_.first][actual_.second] && inmunidad_== 0);
+ return (mapa_.radioFantasma()[actual_.first][actual_.second] && inmunidad_== 0);
 }
 
 Nat Partida:: puntaje() const {
@@ -65,33 +65,6 @@ Nat Partida:: inmunidad() const {
     return inmunidad_;
 }
 
-Nat Partida::ancho() const {
-    return mapa_.ancho();
-}
-
-Nat Partida::alto() const {
-    return mapa_.alto();
-}
-
-Coordenada Partida:: salida() const{
-    return mapa_.salida();
-}
-
-Coordenada Partida:: llegada() const {
-    return mapa_.llegada();
-}
-
-set<Coordenada> Partida:: conjChocos() const {
-    return mapa_.conjChocos();
-}
-set<Coordenada> Partida:: conjFantasmas() const {
-    return mapa_.conjFantasmas();
-}
-
-set<Coordenada> Partida:: conjParedes() const {
-    return mapa_.conjParedes();
-}
-
-set<Coordenada> Partida::chocosActuales() const {
-    return mapa_.chocosActuales();
+const Mapa& Partida::mapa() const {
+    return mapa_;
 }
